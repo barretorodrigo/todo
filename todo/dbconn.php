@@ -1,8 +1,8 @@
 <?php
 
 $servername = "localhost";
-$username   = "barreto";
-$password   = "barreto.2";
+$username   = "root";
+$password   = "";
 $dbname     = "todo";
 
 // Create connection
