@@ -1,10 +1,3 @@
-<?php
-include 'dbconn.php';
-include 'functions.php';
-$sql    = "SELECT id, titulo, descricao, data, status FROM tarefas";
-$result = $conn->query($sql);
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

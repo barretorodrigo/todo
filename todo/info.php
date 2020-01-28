@@ -1,8 +1,6 @@
 <?php
 include 'dbconn.php';
 include 'functions.php';
-$sql    = "SELECT id, titulo, descricao, data, status FROM tarefas";
-$result = $conn->query($sql);
 
 ?>
 <!DOCTYPE html>
@@ -46,12 +44,12 @@ $result = $conn->query($sql);
   <div class="container">
 
     <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Tarefas concluídas: 10/20</h4>
+        <h4 class="alert-heading">Tarefas concluídas: <?php echo calcDone($conn);?></h4>
         <hr>
-        <p class="mb-0">Porcentagem de tarefas concluídas: 50%</p>
+        <p class="mb-0">Porcentagem de tarefas concluídas: <?php echo calcPercent($conn)?></p>
     </div>
     <div class="alert alert-warning" role="alert">
-        <h4 class="alert-heading">Tarefas atrasadas: 3</h4>
+        <h4 class="alert-heading">Tarefas atrasadas: <?php echo calcLatter($conn);?></h4>
         <hr>
         <p class="mb-0">Cuidado ao atrasar muitas tarefas</p>
     </div>
