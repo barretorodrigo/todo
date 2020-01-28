@@ -1,10 +1,8 @@
 <?php
 include 'dbconn.php';
-
-$id     = $_GET['id'];
-$status = true;
-
-$sql = "UPDATE tarefas SET status=true WHERE id='$id'";
+include 'functions.php';
+$sql    = "SELECT id, titulo, descricao, data, status FROM tarefas";
+$result = $conn->query($sql);
 
 ?>
 <!DOCTYPE html>
@@ -45,21 +43,21 @@ $sql = "UPDATE tarefas SET status=true WHERE id='$id'";
     </div>
   </nav>
 
+  <div class="container">
 
-  <?php
-  if ($conn->query($sql)) { ?>
     <div class="alert alert-success" role="alert">
-      Tarefa concluída com sucesso
+        <h4 class="alert-heading">Tarefas concluídas: 10/20</h4>
+        <hr>
+        <p class="mb-0">Porcentagem de tarefas concluídas: 50%</p>
     </div>
-  <?php } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Tarefas atrasadas: 3</h4>
+        <hr>
+        <p class="mb-0">Cuidado ao atrasar muitas tarefas</p>
+    </div>
+    
+  </div>
 
-  ?>
-
-
-
-  <a href="index.php" title=""><button type="button" class="btn btn-info">Voltar</button></a>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

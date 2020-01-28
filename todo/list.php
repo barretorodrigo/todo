@@ -1,5 +1,6 @@
 <?php
 include 'dbconn.php';
+include 'functions.php';
 $sql    = "SELECT id, titulo, descricao, data, status FROM tarefas";
 $result = $conn->query($sql);
 
@@ -33,6 +34,9 @@ $result = $conn->query($sql);
         <li class="nav-item">
           <a class="nav-link" href="list.php">Lista</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="info.php">Informações</a>
+        </li>
 
       </ul>
 
@@ -60,7 +64,7 @@ $result = $conn->query($sql);
               <td scope="col"> <?php echo $row["id"]; ?></td>
               <td scope="col"><?php echo $row["titulo"]; ?></td>
               <td scope="col"><?php echo $row["descricao"]; ?></td>
-              <td scope="col"><?php echo $row["data"]; ?></td>
+              <td scope="col"><?php echo formatDate($row['data']); ?></td>
               <td scope="col"><?php
                               if ($row["status"]) {
                                 echo "<span class='badge badge-pill badge-primary'>Tarefa concluída</span>";
